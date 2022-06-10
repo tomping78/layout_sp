@@ -33,3 +33,21 @@ code {
 .site-layout .site-layout-background {
   background: #fff;
 }
+
+.ant-layout-content {
+  display: flex;
+  flex-direction: column;
+}
+.ContentArea {
+  width:100%;
+    display:flex;
+    flex-direction: column;
+    flex:1 1 auto;
+    padding:20px;
+}
+.content_inner {
+  background: #fff;
+  display: flex;
+  flex:1 1 auto;
+
+}
