@@ -4,39 +4,66 @@ import Home from "./Home";
 import Board from "./Board";
 import "../node_modules/antd/dist/antd.min.css";
 import "./index.css";
+import styled from 'styled-components';
 import { Layout, Menu } from "antd";
+import {
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+  HomeOutlined,
+  FormOutlined
+} from '@ant-design/icons';
 
-const { Sider, Content: AntdContent } = Layout;
+const { Sider, Header, Content } = Layout;
+const LogoArea = styled.div`
+  color:#fff;
+  font-size: 20px;
+  width:100%;
+  height:70px;
+  padding:5px;
+  background:url(./opf.png) no-repeat 0 0;
+`
 
 function App() {
-  const [collapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(false);
 
   return (
-    <Layout className="site-layout">
+    <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="logo" />
+        <LogoArea></LogoArea>
         <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
-          <Menu.Item key={"1"}>
+          <Menu.Item key={"1"} icon={<HomeOutlined />}>
             <NavLink to={"/"}>Home</NavLink>
           </Menu.Item>
-          <Menu.Item key={"2"}>
+          <Menu.Item key={"2"} icon={<FormOutlined />}>
             <NavLink to={"/board"}>Board</NavLink>
           </Menu.Item>
         </Menu>
       </Sider>
-      <AntdContent
-        className="site-layout-background"
-        style={{
-          margin: "24px 16px",
-          padding: 24,
-          minHeight: 280,
-        }}
-      >
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/board" element={<Board />} />
-        </Routes>
-      </AntdContent>
+      <Layout className="site-layout">
+        <Header
+          className="site-layout-background"
+          style={{
+            padding: 0,
+            borderBottom:'1px solid #ccc'
+          }}
+        >
+          {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+            className: 'trigger',
+            onClick: () => setCollapsed(!collapsed),
+          })}
+        </Header>
+        <Content
+          className="site-layout-background"
+          style={{
+            background:'#f0f2f5'
+          }}
+        >
+          <Routes>
+            <Route index path="/" element={<Home />} />
+            <Route path="/board" element={<Board />} />
+          </Routes>
+        </Content>
+      </Layout>
     </Layout>
   );
 }
