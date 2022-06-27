@@ -37,6 +37,7 @@ code {
 .ant-layout-content {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 .ContentArea {
   width:100%;
@@ -49,5 +50,13 @@ code {
   background: #fff;
   display: flex;
   flex:1 1 auto;
+  flex-direction: column;
+  padding:25px;
 
+}
+.ant-form-item {
+  margin:0 0 10px !important;
+}
+.ant-transfer {
+  flex:1 1 auto;
 }

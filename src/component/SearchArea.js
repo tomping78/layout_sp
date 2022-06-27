@@ -1,13 +1,7 @@
 import React from 'react';
-import { Button, Descriptions, Divider, PageHeader, Tag  } from 'antd';
+import { Button, Row, Col, Form, Input, Divider, PageHeader, Tag  } from 'antd';
 import styled from 'styled-components'
 
-const HeadLink = styled.a`
-    color: #52c714;
-    &:hover {
-        color:red;
-    }
-`
 const SearchArea = styled.div`
     background:#fff;
 `
@@ -29,17 +23,51 @@ function SearchComp(props) {
             ]}
             >
                 <Divider style={{marginTop:'10px'}} />
-                <Descriptions size="small" column={3}>
-                    <Descriptions.Item label="Created">Lili Qu</Descriptions.Item>
-                    <Descriptions.Item label="Association">
-                        <HeadLink>421421</HeadLink>
-                    </Descriptions.Item>
-                    <Descriptions.Item label="Creation Time">2017-01-10</Descriptions.Item>
-                    <Descriptions.Item label="Effective Time">2017-10-10</Descriptions.Item>
-                    <Descriptions.Item label="Remarks">
-                    Gonghu Road, Xihu District, Hangzhou, Zhejiang, China
-                    </Descriptions.Item>
-                </Descriptions>
+                <Form
+                name="basic"
+                labelCol={{ span: 8 }}
+                wrapperCol={{ span: 16 }}
+                initialValues={{ remember: true }}
+                autoComplete="off"
+                >
+                    <Row gutter={[16, 0]}>
+                        <Col span={6} >
+                            <Form.Item
+                                label="Subject"
+                                name="subject"
+                                rules={[{ required: true, message: 'Please input your username!' }]}
+                            >
+                                <Input />
+                            </Form.Item>
+                        </Col>
+                        <Col span={6} >
+                            <Form.Item
+                                label="Office"
+                                name="office"
+                                rules={[{ required: true, message: 'Please input your username!' }]}
+                            >
+                                <Input />
+                            </Form.Item>
+                        </Col>
+                        <Col span={6} >
+                            <Form.Item
+                                label="Data"
+                                name="data"
+                                rules={[{ required: true, message: 'Please input your username!' }]}
+                            >
+                                <Input />
+                            </Form.Item>
+                        </Col>
+                        <Col span={6} >
+                            <Form.Item
+                                label="Component"
+                                name="component"
+                            >
+                                <Input />
+                            </Form.Item>
+                        </Col>
+                    </Row>
+                </Form>
             </PageHeader>
         </SearchArea>
     );

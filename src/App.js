@@ -18,9 +18,9 @@ const LogoArea = styled.div`
   color:#fff;
   font-size: 20px;
   width:100%;
-  height:70px;
+  height:60px;
   padding:5px;
-  background:url(./opf.png) no-repeat 0 0;
+  background:#111 url(./opf.png) no-repeat 0 0;
 `
 
 function App() {
@@ -38,6 +38,7 @@ function App() {
             <NavLink to={"/board"}>Board</NavLink>
           </Menu.Item>
         </Menu>
+        
       </Sider>
       <Layout className="site-layout">
         <Header
@@ -59,8 +60,8 @@ function App() {
           }}
         >
           <Routes>
-            <Route index path="/" element={<Home />} />
-            <Route path="/board" element={<Board />} />
+              <Route index element={<Home />} />
+              <Route path="/board" element={<Board />} />
           </Routes>
         </Content>
       </Layout>
