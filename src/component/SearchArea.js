@@ -2,13 +2,15 @@ import React from 'react';
 import { Button, Row, Col, Form, Input, Divider, PageHeader, Tag  } from 'antd';
 import styled from 'styled-components'
 
-const SearchArea = styled.div`
+const SearchAr = styled.div`
     background:#fff;
+    box-shadow:0px 8px 5px rgb(77, 77, 77, .1);
+    z-index:55;
 `
 
-function SearchComp(props) {
+function SearchArea(props) {
     return (
-        <SearchArea>
+        <SearchAr>
             <PageHeader
             className="site-page-header"
             title="Title"
@@ -69,8 +71,8 @@ function SearchComp(props) {
                     </Row>
                 </Form>
             </PageHeader>
-        </SearchArea>
+        </SearchAr>
     );
 }
 
-export default SearchComp;
+export default SearchArea;
