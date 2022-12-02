@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Row, Col, Form, Input, Divider, PageHeader, Tag  } from 'antd';
+import { Button, Row, Col, Form, Input, Select, Divider, PageHeader, Tag  } from 'antd';
 import styled from 'styled-components'
 
 const SearchAr = styled.div`
@@ -7,7 +7,9 @@ const SearchAr = styled.div`
     box-shadow:0px 8px 5px rgb(77, 77, 77, .1);
     z-index:55;
 `
-
+const handleChange = (value) => {
+    console.log(`selected ${value}`);
+  };
 function SearchArea(props) {
     return (
         <SearchAr>
@@ -39,7 +41,37 @@ function SearchArea(props) {
                                 name="subject"
                                 rules={[{ required: true, message: 'Please input your username!' }]}
                             >
-                                <Input />
+                                <Select
+    defaultValue="lucy"
+    style={{
+      width: 200,
+    }}
+    onChange={handleChange}
+    options={[
+      {
+        label: 'Manager',
+        options: [
+          {
+            label: 'Jack',
+            value: 'jack',
+          },
+          {
+            label: 'Lucy',
+            value: 'lucy',
+          },
+        ],
+      },
+      {
+        label: 'Engineer',
+        options: [
+          {
+            label: 'yiminghe',
+            value: 'Yiminghe',
+          },
+        ],
+      },
+    ]}
+  />
                             </Form.Item>
                         </Col>
                         <Col span={6} >
