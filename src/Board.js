@@ -1,4 +1,4 @@
-import SearchArea from "./component/SearchArea";
+// import SearchArea from "./component/SearchArea";
 import Breadcrumb from "./component/Breadcrumb";
 import { Transfer, Tree } from 'antd';
 import React, { useState } from 'react';
@@ -94,7 +94,7 @@ function Board(props) {
   };
   return (
     <>
-        <SearchArea />
+        {/* <SearchArea /> */}
         <div className="ContentArea">
             <Breadcrumb />
             <div className="content_inner">
