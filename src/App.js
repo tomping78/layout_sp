@@ -4,8 +4,10 @@ import Home from "./Home";
 import Board from "./Board";
 // import "../node_modules/antd/dist/antd.min.css";
 import "./index.css";
+import "./opf.png";
 import styled from 'styled-components';
 import { Layout, Menu, ConfigProvider, theme, Button } from "antd";
+import koKR from 'antd/lib/locale/ko_KR';
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
@@ -37,7 +39,7 @@ function App() {
   return (
     <ConfigProvider theme={{
       algorithm: isDarkMode ? darkAlgorithm : defaultAlgorithm,
-    }}>
+    }} locale={koKR}>
       <Layout>
         <Sider trigger={null} collapsible collapsed={collapsed}>
           <LogoArea></LogoArea>

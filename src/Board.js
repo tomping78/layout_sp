@@ -1,6 +1,6 @@
 // import SearchArea from "./component/SearchArea";
 import Breadcrumb from "./component/Breadcrumb";
-import { Transfer, Tree } from 'antd';
+import { Transfer, Tree, Form, Input } from 'antd';
 import React, { useState } from 'react';
 import BoardList from './component/BoardList'
 
@@ -98,6 +98,13 @@ function Board(props) {
         <div className="ContentArea">
             <Breadcrumb />
             <div className="content_inner">
+                <Form.Item
+                    label="Office"
+                    name="office"
+                    rules={[{ required: true, pattern: '^(?=.*[a-z])', message: '다시 입력해 주세요' }]}
+                >
+                    <Input />
+                </Form.Item>
                 <TreeTransfer dataSource={treeData} targetKeys={targetKeys} onChange={onChange} />
                 <BoardList />
             </div>
